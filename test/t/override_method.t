@@ -203,6 +203,7 @@ Content-Type: text/plain
 --- response_body chop
 PUT
 --- timeout: 10
+--- skip_nginx: 3: < 0.8.34
 
 
 
@@ -225,6 +226,7 @@ Content-Type: text/plain
 --- response_body chop
 GET
 --- timeout: 10
+--- skip_nginx: 3: < 0.8.34
 
 
 
