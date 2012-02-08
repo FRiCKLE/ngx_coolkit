@@ -45,7 +45,7 @@ static ngx_http_variable_t ngx_coolkit_module_variables[] = {
 
     { ngx_string("remote_passwd"), NULL,
       ngx_coolkit_variable_remote_passwd, 0,
-      NGX_HTTP_VAR_NOHASH|NGX_HTTP_VAR_NOCACHEABLE, 0 },
+      NGX_HTTP_VAR_NOCACHEABLE, 0 },
 
     { ngx_null_string, NULL, NULL, 0, 0, 0 }
 };
