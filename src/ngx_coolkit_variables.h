@@ -33,5 +33,7 @@
 
 ngx_int_t  ngx_coolkit_variable_remote_passwd(ngx_http_request_t *,
                ngx_http_variable_value_t *, uintptr_t);
+ngx_int_t  ngx_coolkit_variable_location(ngx_http_request_t *,
+               ngx_http_variable_value_t *, uintptr_t);
 
 #endif /* _NGX_COOLKIT_VARIABLES_H_ */

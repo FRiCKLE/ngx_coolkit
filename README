@@ -21,6 +21,11 @@ CONFIGURATION VARIABLES:
   Decoded password from "Authorization" header (Basic HTTP Authentication).
 
 
+  $location
+  ---------
+  Name of the matched location block.
+
+
 EXAMPLE CONFIGURATION #1:
 -------------------------
 http {
