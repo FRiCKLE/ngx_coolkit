@@ -57,3 +57,36 @@ ngx_coolkit_variable_remote_passwd(ngx_http_request_t *r,
 
     return NGX_OK;
 }
+
+
+ngx_int_t
+ngx_coolkit_variable_location(ngx_http_request_t *r,
+    ngx_http_variable_value_t *v, uintptr_t data)
+{
+    ngx_http_core_loc_conf_t  *clcf;
+    ngx_int_t                  rc;
+    int                        captures[3];
+
+    clcf = ngx_http_get_module_loc_conf(r, ngx_http_core_module);
+
+    if (clcf->regex) {
+        rc = ngx_regex_exec(clcf->regex->regex, &r->uri, captures, 3);
+
+        if (rc == NGX_REGEX_NO_MATCHED) {
+            return NGX_ERROR;
+        }
+
+        v->data = r->uri.data + captures[0];
+        v->len = captures[1] - captures[0];
+
+    } else {
+        v->data = clcf->name.data;
+        v->len = clcf->name.len;
+    }
+
+    v->valid = 1;
+    v->no_cacheable = 0;
+    v->not_found = 0;
+
+    return NGX_OK;
+}
