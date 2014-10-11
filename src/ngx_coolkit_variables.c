@@ -64,11 +64,14 @@ ngx_coolkit_variable_location(ngx_http_request_t *r,
     ngx_http_variable_value_t *v, uintptr_t data)
 {
     ngx_http_core_loc_conf_t  *clcf;
+#if (NGX_PCRE)
     ngx_int_t                  rc;
     int                        captures[3];
+#endif
 
     clcf = ngx_http_get_module_loc_conf(r, ngx_http_core_module);
 
+#if (NGX_PCRE)
     if (clcf->regex) {
         rc = ngx_regex_exec(clcf->regex->regex, &r->uri, captures, 3);
 
@@ -79,7 +82,9 @@ ngx_coolkit_variable_location(ngx_http_request_t *r,
         v->data = r->uri.data + captures[0];
         v->len = captures[1] - captures[0];
 
-    } else {
+    } else
+#endif
+    {
         v->data = clcf->name.data;
         v->len = clcf->name.len;
     }
