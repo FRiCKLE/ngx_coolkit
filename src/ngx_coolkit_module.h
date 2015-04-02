@@ -27,6 +27,7 @@
 #ifndef _NGX_COOLKIT_MODULE_H_
 #define _NGX_COOLKIT_MODULE_H_
 
+#include <ngx_config.h>
 #include <nginx.h>
 #include <ngx_core.h>
 #include <ngx_http.h>

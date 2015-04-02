@@ -27,6 +27,7 @@
 #ifndef _NGX_COOLKIT_HANDLERS_H_
 #define _NGX_COOLKIT_HANDLERS_H_
 
+#include <ngx_config.h>
 #include <ngx_core.h>
 #include <ngx_http.h>
 
